@@ -1,0 +1,4 @@
+
+let text = "CSS isn’t what it used to be. Today, you’ll be hard-pressed to find a strong, straightforward, and expressive UI language that can beat modern CSS. As the tech world moves more and more towards web-based frameworks for UI, we start to see a bigger emphasis on highly customized looks for apps.\n\nIn this course, you'll learn how to properly develop apps that are theme aware. This course is split into two sections: in the first section, you will learn the practical methods and patterns around theming and discover common problems and their solutions. In the second section, you will get hands-on experience with css-theming -a package you'll use- and through it you'll learn how to customize every facet of your app.\n\nBy the end of this course you’ll be able to create stunning apps that are highly customizable. A central piece of that is going to be dark mode support. Who doesn’t love that?"
+
+export default text;

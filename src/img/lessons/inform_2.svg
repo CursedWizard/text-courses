@@ -1,0 +1,6 @@
+
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="72" height="72" rx="36" fill="var(--circle-color)"/>
+<rect x="1.5" y="1.5" width="69" height="69" rx="34.5" stroke="var(--border-color)" stroke-opacity="0.88" stroke-width="3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M42 15C46.97 15 51 19.03 51 24V48C51 52.97 46.97 57 42 57H30C25.03 57 21 52.97 21 48V24C21 19.03 25.03 15 30 15H42ZM48 33H24V48C24 51.164 26.448 53.754 29.552 53.984L30 54H42C45.164 54 47.754 51.552 47.984 48.448L48 48V33ZM30 18C26.836 18 24.246 20.448 24.016 23.552L24 24V30H34.5V18H30ZM37.5 30H48V24C48 20.836 45.552 18.246 42.448 18.016L42 18H37.5V30Z" fill="var(--svg-color)"/>
+</svg>
