@@ -3,7 +3,18 @@
 /* 	color: white; */
 /* } */
 
-@import url("https://use.typekit.net/iwg5jvw.css");
+/* @import url("https://use.typekit.net/iwg5jvw.css"); */
+
+
+
+@import url("https://p.typekit.net/p.css?s=1&k=dpa0bsm&ht=tk&f=15700.15701.15702.15703.15704.15705.15706.15707.15708.15709.22707.22708.22709.22710.22711.22736.22741.22742&a=5574&app=typekit&e=css");
+@import url("../media/lato_font.css");
+
+body {
+	/* font-family: "lato",sans-serif; */ 
+	font-family: "Nunito";
+    color: #21242c;
+}
 
 * {
 	box-sizing: border-box;
@@ -22,6 +33,12 @@ header {
 	align-items: center;
 }
 
+footer {
+	width: 100%;
+	border-top: .125rem solid #e7eaec;
+	margin-top: 10rem;
+}
+
 header > p {
 	font-weight: 600;
 	color: var(--blue);
@@ -33,7 +50,7 @@ header > img {
 }
 
 p {
-	font-family: "LatoWeb";
+	font-family:  "lato", sans-serif;
 	/* font-family: droid-serif; */
 	/* font-weight: 300; */
 	line-height: 1.55rem;
@@ -43,8 +60,9 @@ p {
 
 .text-base {
 	/* font-family: "Nunito"; */
-	color: #2f2f2f;
-	line-height: 1.40rem;
+	font-family: "lato";
+	color: #21242c;
+	line-height: 1.5rem;
 }
 
 #root {
@@ -119,3 +137,73 @@ p {
 .ml-300 {
 	margin-left: 300px;
 }
+
+.base-footer {
+	max-width: 950px;
+	display: grid;
+	grid-template-columns: 13.625rem auto 3.25rem;
+	grid-template-rows: auto auto;
+	grid-template-areas: 
+	"navigation navigation navigation" "info info info";
+
+	/* max-width: 75rem; */
+	padding: 3rem 2.5rem 1.5rem;
+}
+
+.logo-area {
+	grid-area: "logo";
+}
+
+.navigation-area {
+	grid-area: "navigation";
+
+	grid-column-start: navigation;
+	grid-column-end: navigation;
+}
+
+.social-area {
+	grid-area: "social";
+}
+
+.info-area {
+	grid-area: "info";
+	grid-column-start: info;
+	grid-column-end: info;
+}
+
+.content-base > * {
+	font-family: "lato";
+    color: #21242c;
+	line-height: 1.5rem;
+}
+
+.inline-code {
+    background: rgba(250, 239, 240, 0.78);
+    color: #b44437;
+    padding: 3px 4px;
+    border-radius: 5px;
+    margin: 0 1px;
+    font-family: inherit;
+    font-size: 0.86em;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.paragraph {
+    color: #21242c;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 32px;
+    margin-top: 0;
+}
+
+.base-link {
+	margin-bottom: 0.5rem;
+
+}
+
+.ce-paragraph {
+	line-height: 1.5rem;
+}
+
+

@@ -5,6 +5,7 @@ import NavPanel from"./NavPanel"
 
 import NavLessonItem from "./components/NavLessonItem";
 import NavLessonList from "./components/NavLessonList";
+import EditorWrapper from "./components/EditorWrapper";
 
 class ContentPage extends React.Component {
     constructor (props) 
@@ -68,8 +69,8 @@ class ContentPage extends React.Component {
 					</NavLessonList>
 				}
 			>
-			<div className="mt-12 mx-auto">
-				<h1> Hello </h1>
+			<div className="content-base mt-12 mx-auto">
+				<EditorWrapper/>
 			</div>
 
 			</NavPanel>

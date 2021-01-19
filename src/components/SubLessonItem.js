@@ -38,7 +38,7 @@ class SubLessonItem extends React.Component {
 					:
 					<Disk className="no-shrink" style={{marginLeft: "-9.8px"}}/>
 				}
-				<p style={{marginTop: "-2.0px"}} className="lesson-text">{this.props.title}</p>
+				<h6 style={{marginTop: "-0px"}} className="lesson-text">{this.props.title}</h6>
 			</div>
 		);
 	}

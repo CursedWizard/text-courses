@@ -37,20 +37,20 @@ class NavLessonList extends React.Component {
 						}}
 					>
 						<ArrowRight className="icon-left svg-back my-auto"/>
-						Вернуться к каталогу
+						<p style={{fontWeight: "600"}}>Вернуться к каталогу</p>
 					</button>
 				</Link>
 
 			</div>
 
-			<div className="category-title mb-5 mt-1">
-				<h4 >Математика</h4>
+			<div className="category-title mb-5 mt-0">
+				<h3>Математика</h3>
 			</div>
 
 			<div className="w-full mb-5">
 				<div className="flex h-full "
 				>
-					<span>18% выполнено</span>
+					<p>18% выполнено</p>
 				</div>
 				
 				<div className="progress">

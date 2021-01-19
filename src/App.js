@@ -1,7 +1,7 @@
 import React from "react";
 import IndexPage from "./IndexPage";
 import ContentPage from "./ContentPage";
-import "./media/lato_font/latofonts.css"
+import "./media/gotham_font/stylesheet.css"
 import "./styles/base_stylesheet.css"
 
 import './styles/App.css';

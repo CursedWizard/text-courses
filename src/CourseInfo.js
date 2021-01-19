@@ -14,6 +14,8 @@ import Button from "./components/Button"
 
 import HighlightedFeature from "./components/CoursePage/HighlightedFeature";
 import NavLessonItem from "./components/NavLessonItem";
+import Footer from "./components/Footer";
+
 
 import ContentTable from "./components/CoursePage/ContentTable"
 
@@ -100,7 +102,7 @@ class CourseInfo extends React.Component {
 							src={"https://exode.ru/img/icon-square-256.png"}
 							width="36" height="36" alt=""/>
 						<p 
-							className="mt-auto mb-auto ml-2"
+							className="ml-2"
 						>exode</p>
 					</div>
 				</div>
@@ -206,6 +208,8 @@ class CourseInfo extends React.Component {
 					</div>
 
 				</div>
+
+				<Footer/>
 
 			</>
 

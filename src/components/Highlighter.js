@@ -26,8 +26,8 @@ class Highlighter extends React.Component {
 
 				<div
 					className="flex-column justify-start -mt-3">
-					<h5 className="mb-0"
-					>{this.props.title}</h5>
+					<h4 style={{fontSize: "1.25rem"}} className="mb-0"
+					>{this.props.title}</h4>
 					<p className="text-base">{this.props.text}</p>
 				</div>
 

@@ -47,10 +47,10 @@ class NavLessonItem extends React.Component {
 						onClick={this.handleButtonClick}
 						style={{alignItems: "start"}}
 					>
-						<h6>{this.props.indexNumber}</h6>
-						<h6
+						<h5>{this.props.indexNumber}</h5>
+						<h5
 							className="ml-2"
-						>{this.props.title}</h6>
+						>{this.props.title}</h5>
 					</div>
 
 
@@ -70,7 +70,7 @@ class NavLessonItem extends React.Component {
 								null
 						}
 					<button 
-						className={"button-base button-root rounded-full p-0 " + this.props.butClassName}
+						className={"button-base button-root rounded-full p-0 -mr-1 " + this.props.butClassName}
 						type="button"
 						onClick={this.handleButtonClick}
 					>

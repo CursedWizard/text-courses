@@ -146,13 +146,14 @@ max-width: 100%;
 }
 
 .lesson-text {
-flex: 0 1 auto;
-color: rgba(0, 0, 0, 0.87);
-margin-left: 20px;
-text-decoration: none;
-overflow: hidden;
-cursor: pointer;
-transition: all 0.2s ease 0s;
+	font-weight: 400;
+	flex: 0 1 auto;
+	color: rgba(0, 0, 0, 0.87);
+	margin-left: 20px;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+	transition: all 0.2s ease 0s;
 }
 
 

@@ -3,6 +3,7 @@ import SearchBar from "./components/SearchBar";
 import "./styles/course_page.css"
 
 import CourseCard from "./components/CourseCard";
+import Footer from "./components/Footer";
 
 import {
   BrowserRouter as Router,
@@ -103,6 +104,8 @@ class CoursesPage extends React.Component {
 					</div>
 				</div>
 				</div>
+
+				<Footer/>
 			</>
 
 		);
