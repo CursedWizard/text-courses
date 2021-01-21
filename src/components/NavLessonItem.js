@@ -70,7 +70,7 @@ class NavLessonItem extends React.Component {
 								null
 						}
 					<button 
-						className={"button-base button-root rounded-full p-0 -mr-1 " + this.props.butClassName}
+						className={"button-base button-root rounded-full p-0  " + this.props.butClassName}
 						type="button"
 						onClick={this.handleButtonClick}
 					>

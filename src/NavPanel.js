@@ -110,7 +110,7 @@ class NavPanel extends React.Component {
 							className="ml-2"
 							src={"https://exode.ru/img/icon-square-256.png"}
 							width="30" height="30" alt=""/>
-						<a href="https://exode.ru/" className="col-blue ml-1">exode</a>
+						<a href="https://exode.ru/" className="col-blue ml-1 my-auto">exode</a>
 					</header>
 
 					{this.props.children}

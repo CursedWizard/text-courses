@@ -263,12 +263,12 @@ class CourseCard extends React.Component {
 							display:"flex"
 						}}
 					>
-						<p
+						<span
 							style={{
 								fontSize: "20px",
-								fontWeight: "bold",
+								// fontWeight: "bold",
 							}}
-						>Начать</p>
+						>Начать</span>
 
 						<ArrowRight
 						style={{

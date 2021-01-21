@@ -34,7 +34,7 @@ class Footer extends React.Component {
 										src={"https://exode.ru/img/icon-square-256.png"}
 										width="36" height="36" alt=""/>
 									<p 
-										className="col-blue ml-2"
+										className="col-blue ml-2 secondary-font my-auto"
 									>exode.ru</p>
 								</div>
 

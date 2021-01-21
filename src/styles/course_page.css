@@ -87,7 +87,6 @@
 	align-self: center;
 	width: 100%;
 	max-width: 1200px;
-	margin: 20px auto;
 }
 
 #dashboard-grid
@@ -376,10 +375,10 @@ display: inline-flex;
 .tab {
 	border-bottom: 3px solid #FF8D3C;
 	align-self: end;
-	padding-left: 6px;
-	padding-right: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-bottom: 6px;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 	border-radius: 0px;
 }
 

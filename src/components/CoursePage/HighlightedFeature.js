@@ -34,7 +34,7 @@ class HighlightedFeature extends React.Component {
 		}
 
 		return (
-				<div className="flex-row items-center justify-center high-feature"
+				<div className="flex-row items-center justify-center high-feature no-wrap"
 					style={this.props.style}
 				>
 					<Icon style={{

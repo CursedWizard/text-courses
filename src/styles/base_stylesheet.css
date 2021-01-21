@@ -34,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size:100%;
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+	font-family: "Nunito";
 }
 
 body {
@@ -169,34 +170,6 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     cursor: pointer;
 }
 
-button {
-	font-size: .9375rem;
-	border-radius: .25rem;
-	border-width: 0;
-	display: flex;
-	color: rgb(0, 0, 0, 0.75);
-	align-items: center;
-	justify-content: center;
-	font-weight: 400;
-	line-height: 1.5;
-	padding: .45rem;
-	/* padding-left: 0.75rem; */
-	--tw-text-opacity: 1;
-	letter-spacing: .025em;
-	white-space: nowrap;
-	transition-duration: .2s;
-	background-color: transparent;
-	font-weight: 700;
-}
-
-button:focus {
-	outline: none;
-}
-
-button:hover {
-    background-color: rgba(229,229,229,1);
-}
-
 .flex {
 	display: flex;
 }
@@ -221,6 +194,10 @@ button:hover {
 
 .justify-start {
 	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
 }
 
 .justify-center {
@@ -479,6 +456,10 @@ button:hover {
 	margin-top: 1.5rem;
 }
 
+.mt-7 {
+	margin-top: 1.75rem;
+}
+
 .mt-8 {
 	margin-top: 2.0rem;
 }
@@ -517,6 +498,11 @@ button:hover {
 
 .-mt-12 {
 	margin-top: -3.0rem;
+}
+
+.py-auto {
+	padding-top: auto;
+	padding-bottom: auto;
 }
 
 .p-0 {
@@ -572,6 +558,14 @@ button:hover {
 	padding-right: 1.5rem;
 }
 
+.pr-7 {
+	padding-right: 1.75rem;
+}
+
+.pr-8 {
+	padding-right: 2rem;
+}
+
 .pl-1 {
 	padding-left: 0.25rem;
 }
@@ -594,6 +588,14 @@ button:hover {
 
 .pl-6 {
 	padding-left: 1.5rem;
+}
+
+.pl-7 {
+	padding-left: 1.75rem;
+}
+
+.pl-8 {
+	padding-left: 2rem;
 }
 
 .pt-1 {
@@ -692,11 +694,13 @@ button:hover {
 
 .progress-bar {
 	height: 10px;
-	background: linear-gradient(91.07deg, #FB5B69 5.5%, #FF8D3C 91.95%, #FF8D3C 91.95%);
+
+	background: #FF8D3C;
+	/* background: linear-gradient(91.07deg, #FF8D3C 91.95%, #FF8D3C 91.95%); */
 	border-radius: 18px;
 }
 
-.nowrap {
+.no-wrap {
 	flex-wrap: nowrap;
 }
 
@@ -741,3 +745,8 @@ button:hover {
 .base-wrap {
 	flex-wrap: wrap;
 }
+
+.grey-back {
+	background-color: #FAFAFA;
+}
+

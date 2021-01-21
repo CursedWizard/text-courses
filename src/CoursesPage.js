@@ -52,7 +52,9 @@ class CoursesPage extends React.Component {
 		return (
 			<>
 
-				<div className="courses-page-wrapper mt-12">
+				<div 
+					style={{minHeight: "950px"}}
+					className="courses-page-wrapper mt-12">
 				{/* <SearchBar/> */}
 					<div className="flex-column courses-header mb-4">
 						<div className="courses-header-wrapper">
@@ -80,7 +82,9 @@ class CoursesPage extends React.Component {
 						</div>
 					</div>
 
-				<div id="dashboard">
+				<div id="dashboard"
+					className="mx-auto"
+				>
 					<div id="dashboard-grid">
 
 						<Link to="/index/info/1">

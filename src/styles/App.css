@@ -10,6 +10,13 @@
 @import url("https://p.typekit.net/p.css?s=1&k=dpa0bsm&ht=tk&f=15700.15701.15702.15703.15704.15705.15706.15707.15708.15709.22707.22708.22709.22710.22711.22736.22741.22742&a=5574&app=typekit&e=css");
 @import url("../media/lato_font.css");
 
+::-moz-selection {
+	background-color:#d4ecff
+}
+::selection {
+	background-color:#d4ecff
+}
+
 body {
 	/* font-family: "lato",sans-serif; */ 
 	font-family: "Nunito";
@@ -36,7 +43,7 @@ header {
 footer {
 	width: 100%;
 	border-top: .125rem solid #e7eaec;
-	margin-top: 10rem;
+	/* margin-top: 10rem; */
 }
 
 header > p {
@@ -58,11 +65,39 @@ p {
 }
 
 
+button {
+	font-family: "Nunito";
+	font-size: .9375rem;
+	border-radius: .25rem;
+	border-width: 0;
+	display: flex;
+	color: rgb(0, 0, 0, 0.75);
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+	line-height: 1.5;
+	padding: .45rem;
+	/* padding-left: 0.75rem; */
+	letter-spacing: .025em;
+	white-space: nowrap;
+	transition-duration: .2s;
+	background-color: transparent;
+	font-weight: 700;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover {
+    background-color: rgba(229,229,229,1);
+}
+
 .text-base {
 	/* font-family: "Nunito"; */
 	font-family: "lato";
 	color: #21242c;
-	line-height: 1.5rem;
+	line-height: 1.35rem;
 }
 
 #root {
@@ -100,6 +135,14 @@ p {
 
 .rounded-full {
 	border-radius: 9999px;
+}
+
+.rounded-main {
+	border-radius: 20px;
+}
+
+.rounded-secondary {
+	border-radius: 6px;
 }
 
 .input-bar:focus {
@@ -206,4 +249,100 @@ p {
 	line-height: 1.5rem;
 }
 
+.main-font {
+	font-family: "lato";
+}
 
+.secondary-font {
+	font-family: "Nunito";
+}
+
+.right-sticky {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -moz-box-pack: start;
+    justify-content: flex-start;
+    -moz-box-align: center;
+    align-items: center;
+    min-width: 230px;
+    margin-bottom: 3rem;
+    top: calc(105px);
+    position: sticky;
+}
+
+.borders-grey {
+	border: 1px solid #E1E1E1;
+}
+
+.button-borders {
+	border: 1px solid #E1E1E1;
+	border-radius: 6px;
+	padding: .375rem 0.2rem;
+	/* min-width: 10rem; */
+}
+
+button.button-borders:hover {
+	/* border: 1px solid #21242c; */
+	border-color: rgba(32,32,51,0.4);
+	background-color: #F5F5F5;
+	transition: all 0.2s ease-in-out;
+}
+
+.floating {
+	box-shadow: 0 0.35rem 1.125rem rgba(0,0,0,.15);
+}
+
+.orange-back {
+	background-color: #fc9851;
+}
+
+.content-base ul li::before {
+
+    content: "";
+    display: block;
+    position: absolute;
+	margin-top: 7.5px;
+    /* top: 1rem; */
+    left: 22px;
+    width: 8px;
+    height: 8px;
+    background-color: #FF8D3C;
+    border-radius: 50%;
+    transform: translateY(50%);
+    /* box-shadow: 0 4px 9px -1px #FF8D3C; */
+
+}
+.codex-editor__redactor {
+	margin-right: 0px;
+}
+
+.content-base ul {
+    list-style: none;
+}
+
+.modal-overlay {
+	display: flex;
+	-moz-box-pack: end;
+	justify-content: flex-end;
+	position: fixed;
+	inset: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	background-size: contain;
+	align-items: center;
+	z-index: 9999;
+	overflow: hidden auto;
+}
+
+.modal-window {
+	width: 436px;
+	/* padding: 20px 10px; */
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	height: 100%;
+}
+
+
+.balance-button {
+	background-image: url("../img/forms/back-grd.svg");
+}
