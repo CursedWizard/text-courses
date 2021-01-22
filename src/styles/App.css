@@ -327,20 +327,47 @@ button.button-borders:hover {
 	justify-content: flex-end;
 	position: fixed;
 	inset: 0px;
-	background-color: rgba(0, 0, 0, 0.4);
+	/* background-color: rgba(0, 0, 0, 0.4); */
 	background-size: contain;
 	align-items: center;
-	z-index: 9999;
+	z-index: 1000;
 	overflow: hidden auto;
 }
 
 .modal-window {
-	width: 436px;
+
+	box-shadow: 0 0.35rem 1.125rem rgba(0,0,0,.35);
+	width: 435px;
 	/* padding: 20px 10px; */
 	position: relative;
 	background-color: rgb(255, 255, 255);
 	height: 100%;
+
+	transform: translateX(435px);
+	transition: all 0.4s ease-in-out;
 }
+.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+	background-color: rgba(0, 0, 0, 0.4);
+	background-size: contain;
+	z-index: 1000;
+  }
+
+.blocker-2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 435px;
+    content: ' ';
+	background-size: contain;
+	z-index: 1001;
+  }
 
 
 .balance-button {

@@ -117,7 +117,7 @@ class IndexPage extends React.Component {
 				<div>
 					<Route path="/index/main" exact component={MainPage}/>
 					<Route path="/index/catalog" exact component={CoursesPage}/>
-					<Route path="/index/info" component={CourseInfo}/>
+					<Route path="/index/catalog/:course" exact component={CourseInfo}/>
 				</div>
 
 			</NavPanel>

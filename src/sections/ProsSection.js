@@ -21,7 +21,7 @@ class CourseInfo extends React.Component {
 					<div 
 						className="mx-auto"
 						style={{
-							maxWidth: "850px"
+							maxWidth: "800px"
 						}}
 					>
 					<h4 className="mb-0 mt-0"

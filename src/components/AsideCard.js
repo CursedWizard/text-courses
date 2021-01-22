@@ -9,10 +9,17 @@ import {
 
 
 class AsideCard extends React.Component {
-    // constructor (props) 
-	// {
-		// super(props);
-	// }
+    constructor (props) 
+	{
+		super(props);
+
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick()
+	{
+		console.log(this.props.contentUrl)
+	}
 
 	render()
 	{
@@ -22,7 +29,9 @@ class AsideCard extends React.Component {
 					style={{borderRadius: "6px", minWidth: "300px"}}
 				>
 
-					<button className="gradient-background button w-full mt-0"
+					<button 
+						onClick={this.props.onPurchase}
+						className="gradient-background button w-full mt-0"
 						style={{borderRadius: "6px"}}
 					>
 						<span className="col-white my-auto"
@@ -54,8 +63,10 @@ class AsideCard extends React.Component {
 							</div>
 						</div>
 					</div>
-					<Link to="/content" className="w-full">
-						<button className="button-borders mb-0 w-full mt-2" >
+					<Link to={this.props.contentUrl} className="w-full">
+						<button className="button-borders mb-0 w-full mt-2"
+							onClick={this.handleClick}
+						>
 							<span className="my-auto"
 								style={{fontWeight: "600"}}
 							>Начать</span>

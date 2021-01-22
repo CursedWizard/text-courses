@@ -42,8 +42,8 @@ class App extends React.Component {
 		return (
 			<Router>
 				<Switch>
-					<Route path="/index" component={IndexPage}/>
-					<Route path="/content" component={ContentPage}/>
+					<Route path="/index/catalog/:course/:id" exact component={ContentPage}/>
+					<Route path="/index/:nav_name" component={IndexPage}/>
 				</Switch>
 			</Router>
 		);

@@ -55,7 +55,7 @@ class CoursesPage extends React.Component {
 				<div 
 					style={{minHeight: "950px"}}
 					className="courses-page-wrapper mt-12">
-				{/* <SearchBar/> */}
+
 					<div className="flex-column courses-header mb-4">
 						<div className="courses-header-wrapper">
 
@@ -82,31 +82,31 @@ class CoursesPage extends React.Component {
 						</div>
 					</div>
 
-				<div id="dashboard"
-					className="mx-auto"
-				>
-					<div id="dashboard-grid">
+					<div id="dashboard"
+						className="mx-auto"
+					>
+						<div id="dashboard-grid">
 
-						<Link to="/index/info/1">
-							<CourseCard
-								subjectName="math"
-								subjectSemiName="профильная"
-								partsBit={(1 << 0) | (1 <<  1) | (1 << 2)}
-								link={"math"}
-							/>
-						</Link>
+							<Link to="/index/catalog/math">
+								<CourseCard
+									subjectName="math"
+									subjectSemiName="профильная"
+									partsBit={(1 << 0) | (1 <<  1) | (1 << 2)}
+									link={"math"}
+								/>
+							</Link>
 
-						<Link to="/index/info/2">
-							<CourseCard
-								subjectName="phys"
-								partsBit={(1 << 0) | (1 <<  1)}
-								onClick={this.props.onclick}
-								link={"phys"}
-							/>
-						</Link>
+							<Link to="index/catalog/phys">
+								<CourseCard
+									subjectName="phys"
+									partsBit={(1 << 0) | (1 <<  1)}
+									onClick={this.props.onclick}
+									link={"phys"}
+								/>
+							</Link>
 
+						</div>
 					</div>
-				</div>
 				</div>
 
 				<Footer/>

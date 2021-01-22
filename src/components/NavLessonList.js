@@ -15,10 +15,33 @@ import {
 } from "react-router-dom";
 
 class NavLessonList extends React.Component {
-    // constructor (props) 
-	// {
-		// super(props);
-	// }
+    constructor (props) 
+	{
+		super(props);
+
+		this.state= {
+			courseUrl: ""
+		}
+	}
+
+	componentDidMount()
+	{
+		let url_now = window.location.href;
+
+		let beginUrl = url_now.indexOf("/index");
+		// console.log(url_now.substr(beginUrl, url_now.length))
+		
+		for (let i = url_now.length-1; i > 0; i--)
+		{
+			if (url_now[i] === "/")
+			{
+				this.setState({
+					courseUrl: url_now.substring(beginUrl, i)
+				})
+				break;
+			}
+		}
+	}
 
 	render()
 	{
@@ -43,9 +66,11 @@ class NavLessonList extends React.Component {
 
 			</div>
 
-			<div className="category-title mb-5 mt-0">
-				<h3>Математика</h3>
-			</div>
+				<Link to={this.state.courseUrl}>
+					<div className="category-title mb-5 mt-0">
+						<h3>Математика</h3>
+					</div>
+				</Link>
 
 			<div className="w-full mb-5">
 				<div className="flex h-full "

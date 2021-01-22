@@ -39,10 +39,29 @@ class CourseInfo extends React.Component {
 
 		this.notSelectedStyle = {
 			borderBottom: "3px solid transparent",
-			color: "#656565"
+			color: "#656565",
+		}
+		this.state = {
+			modalActive: false,
+			contentUrl: null
 		}
 
 		this.handleTabClick = this.handleTabClick.bind(this);
+		this.handleCloseModal = this.handleCloseModal.bind(this);
+	}
+
+	componentDidMount()
+	{
+		this.setState({
+			contentUrl: "/index/catalog/math/39DpLBvDW7p"
+		});
+
+		let func =  () => console.log(this.state.contentUrl);
+		setTimeout(function() {
+			func();
+		}, 1000);
+
+		
 	}
 
 	handleTabClick(tabName)
@@ -52,12 +71,27 @@ class CourseInfo extends React.Component {
 		});
 	}
 
+	handleCloseModal()
+	{
+		this.setState({
+			modalActive: this.state.modalActive ^ 1
+		});
+
+	}
+
 	render()
 	{
 		return (
 			<>
 				<div className="_next">
-					{/* <ModalWindow/> */}
+					{
+						this.state.modalActive ?
+							<ModalWindow
+								onClose={this.handleCloseModal}
+							/>
+						:
+							null
+					}
 
 					<HeaderSection
 						title="Математика"
@@ -126,7 +160,10 @@ class CourseInfo extends React.Component {
 
 						</div>
 
-						<AsideCard />
+						<AsideCard
+							onPurchase={this.handleCloseModal}
+							contentUrl={this.state.contentUrl}
+						/>
 
 					</div>
 

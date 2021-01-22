@@ -84,7 +84,7 @@ class NavLessonItem extends React.Component {
 
 				</div>
 
-				<div className="lessons-sublist"
+				<div className="lessons-sublist mt-2"
 					style={this.state.extended ? null : {display: "none"}}
 				>
 					<SubLessonItem

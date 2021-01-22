@@ -1,6 +1,7 @@
 {
   "name": "exode_v0.1",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@editorjs/header": "^2.6.1",

@@ -75,6 +75,7 @@ a {
     background: transparent;
 	cursor: pointer;
 	text-decoration: none;
+	outline: none;
 }
 
 a {
@@ -83,7 +84,7 @@ a {
 
 /* change colours to suit your needs */
 ins {
-    background-color:#ff9;
+	background: rgba(245,235,111,0.29);
     color:#000;
     text-decoration:none;
 }
@@ -660,7 +661,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 
 .text-base {
 	font-size: 1rem;
-	line-height: 1.5rem;
+	line-height: 1.45rem;
 }
 
 .font-bold {

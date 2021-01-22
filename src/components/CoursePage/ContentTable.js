@@ -19,7 +19,7 @@ class ContentTable extends React.Component {
 					<div className="mt-1 ml-0 category-list"
 						style={{
 							marginTop: "1.25rem",
-							marginRight: "1rem",
+							// marginRight: "1rem",
 							maxWidth: "850px"
 						}}
 					>
