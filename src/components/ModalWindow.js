@@ -1,12 +1,30 @@
 
 import React from 'react';
-import SvgBackground from "../img/SvgBackground_1";
 import Close from "../img/Close";
 import ExodeAuthor from "./ExodeAuthor";
 
 // Icons
 // TODO: put them in props and send from CourseInfo
 import MathIcon from "../img/lessons-orange/Math";
+
+import styled from "styled-components";
+import {tailwind} from '../styles/tailwind';
+
+const ModalWrapper = styled.div`
+	box-shadow: 0 0.35rem 1.125rem rgba(0,0,0,.35);
+	width: 435px;
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	height: 100%;
+	overflow-y: auto;
+
+	transform: translateX(435px);
+	transition: all 0.4s ease-in-out;
+
+	box-shadow: 0 0.35rem 1.125rem rgba(0,0,0,.15);
+}
+`;
+
 
 class ModalWindow extends React.Component {
     constructor (props) 
@@ -16,7 +34,9 @@ class ModalWindow extends React.Component {
 			selected: false,
 			text: "Some stuff",
 			cardWidth: "435px",
-			transformCard: "translateX(435px)"
+			transformCard: "translateX(435px)",
+
+			balance: 3000
 		}
 
 		this.handleClose = this.handleClose.bind(this);
@@ -67,7 +87,7 @@ class ModalWindow extends React.Component {
 
 					<div className="modal-overlay"
 					>
-						<div className="modal-window floating"
+						<ModalWrapper
 							style={{
 								width: this.state.cardWidth,
 								display: "flex",
@@ -87,6 +107,8 @@ class ModalWindow extends React.Component {
 								>
 									<Close
 										style={{
+											position: "sticky",
+											overflow: "hidden",
 											width: "16px",
 											height: "16px",
 										}}
@@ -121,7 +143,7 @@ class ModalWindow extends React.Component {
 
 
 
-							<div className="pl-8 pr-8 flex-column">
+							<div style={tailwind("pl-4 pr-4 flex flex-col")}>
 
 								<div className="flex-row justify-between mt-4">
 
@@ -138,7 +160,7 @@ class ModalWindow extends React.Component {
 											color: "#FB5B69",
 											fontSize: "1.25rem"
 										}}
-									>3000 ex.</h1>
+									>{this.state.balance} ex.</h1>
 								</div>
 								
 								<button className="button-borders mb-4 w-full mt-1" >
@@ -169,13 +191,22 @@ class ModalWindow extends React.Component {
 											fontWeight: "700"
 										}}
 									>
+
 										<MathIcon style={{
-											width: "42px",
-											height: "42px"
+											width: "64px",
+											height: "64px"
 										}}/>
-										<h5
-											className="ml-2 mt-0 mb-1"
-										>курс Математика (проф.)</h5>
+
+										<div style={tailwind("flex flex-col ml-4")}>
+
+											<h6
+												style={tailwind("leading-4 text-gray-400 my-1")}
+											>{"урок"}</h6>
+											<h5
+												style={tailwind("leading-4 my-0")}
+											>{this.props.product.name}</h5>
+										</div>
+
 									</div>
 
 									<div className="mt-2 text-base">
@@ -193,7 +224,7 @@ class ModalWindow extends React.Component {
 												fontWeight: "700",
 												color: "#FB5B69",
 											}}
-										>1200 ex.</div>
+										>{this.props.product.price} ex.</div>
 									</div>
 
 								</div>
@@ -201,7 +232,7 @@ class ModalWindow extends React.Component {
 								<button className="button mb-4 w-full mt-3" >
 									<span className="my-auto"
 										style={{fontWeight: "600"}}
-									>Оплатить 1200 ex.</span>
+									>Оплатить {this.props.product.price} ex.</span>
 								</button>
 
 								</div>
@@ -211,7 +242,7 @@ class ModalWindow extends React.Component {
 						</div>
 
 
-						</div>
+						</ModalWrapper>
 					</div>
 					</>
 

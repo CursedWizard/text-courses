@@ -4,13 +4,19 @@ import "./styles/course_page.css"
 
 import CourseCard from "./components/CourseCard";
 import Footer from "./components/Footer";
+import {getCourses} from "./utils/FetchData"
+
+import {loadingCards} from "./img/animation/LoadingCard"
+
+import LoadingBar from "./img/animation/LoadingBar";
+import SubjectCard from "./components/SubjectCard";
+
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
+import {tailwind} from "./styles/tailwind";
+
 
 class CoursesPage extends React.Component {
     constructor (props) 
@@ -22,21 +28,52 @@ class CoursesPage extends React.Component {
 			color: "#656565"
 		}
 		this.state = {
-			currentTab: "all"
+			currentTab: "all",
+			courses: [],
+			loading: true,
+			device: "pc"
 		}
-		this.color = "#ff";
 
 		this.handleTabClick = this.handleTabClick.bind(this);
 	}
 
-	componentDidMount()
+
+	async componentDidMount()
 	{
-		/*
-		 * fetch request
-		 * {
-		 *
-		 * }
-		*/
+		console.log("Data hrer")
+
+		let data = [1, 2]
+		let courses = await getCourses();
+		for (let i in courses)
+		{
+			data.push(courses[i])
+		}
+
+		console.log(data)
+		this.setState({
+			courses: data
+		})
+
+		let modifyDevice = (width) => {
+			if (width <= 400 && this.state.device !== "mobile")	
+				this.setState({
+					device: "mobile"
+				});
+
+			else if (width > 400 && this.state.device === "mobile")
+				this.setState({
+					device: "pc"
+				});
+		}
+
+		modifyDevice(window.innerWidth);
+		window.addEventListener('resize', () => modifyDevice(window.innerWidth));
+
+		setTimeout(() => {
+			this.setState({
+				loading: false
+			})
+		}, 0);
 	}
 
 	handleTabClick(tabName)
@@ -53,17 +90,24 @@ class CoursesPage extends React.Component {
 			<>
 
 				<div 
-					style={{minHeight: "950px"}}
+					style={tailwind("min-h-70")}
 					className="courses-page-wrapper mt-12">
 
 					<div className="flex-column courses-header mb-4">
 						<div className="courses-header-wrapper">
 
-							<h1 className="mb-6">Каталог курсов</h1>
+							<LoadingBar loading={this.state.loading}/>
+
+							{this.state.device === "mobile" ? 
+							null
+							:
+							<h1 style={null}>Каталог курсов</h1>
+							}
+
 
 							<SearchBar/>
 
-							<div className="flex-row tabs-container items-center mt-4 ml-4">
+							<div className="flex-row tabs-container items-center mt-4">
 
 								<button className="tab mt-auto"
 									style={this.state.currentTab === "all" ? null : this.notSelectedStyle}
@@ -87,23 +131,32 @@ class CoursesPage extends React.Component {
 					>
 						<div id="dashboard-grid">
 
-							<Link to="/index/catalog/math">
-								<CourseCard
-									subjectName="math"
-									subjectSemiName="профильная"
-									partsBit={(1 << 0) | (1 <<  1) | (1 << 2)}
-									link={"math"}
-								/>
-							</Link>
-
-							<Link to="index/catalog/phys">
-								<CourseCard
-									subjectName="phys"
-									partsBit={(1 << 0) | (1 <<  1)}
-									onClick={this.props.onclick}
-									link={"phys"}
-								/>
-							</Link>
+							{
+								this.state.loading ?
+									loadingCards.map((card, index) => {
+										return card;
+									})
+									:
+								this.state.courses.map((course, index) => {
+									return (
+										<Link style={this.state.device === "mobile" ? tailwind("w-full") : null} to="/web/theory-courses/math">
+											{
+												this.state.device === "mobile" ?
+													<SubjectCard/>
+												:
+												<CourseCard
+													subjectName="math"
+													subjectSemiName="профильная" 
+													overview={course.descr} 
+													partsBit={course.parts_bit} 
+													author={course.author_info} 
+													link={"math"} 
+												/> 
+											}
+										</Link>
+									) 
+								})
+							}
 
 						</div>
 					</div>
@@ -120,28 +173,5 @@ export default CoursesPage;
 
 /*
  *
-						<coursecard
-							subjectname="phys"
-							partsbit={(1 << 0) | (1 <<  1)}
-							onclick={this.props.onclick}
-						/>
-
-						<CourseCard
-							subjectName="rus"
-							partsBit={(1 << 0)}
-
-						/>
-						<CourseCard
-							subjectName="progr"
-							partsBit={(1 << 0)}
-						/>
-						<CourseCard
-							subjectName="soc"
-							partsBit={(1 << 1) | (1 << 2)}
-						/>
-
-						<CourseCard
-							subjectName="bio"
-							partsBit={(1 << 0)}
-						/>
+ *
 		*/

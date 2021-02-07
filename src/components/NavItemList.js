@@ -1,5 +1,4 @@
 
-import PropTypes from 'prop-types';
 import React from 'react';
 // import "../styles/nav_style.css";
 import NavItem from "./NavItem";
@@ -14,9 +13,15 @@ class NavItemList extends React.Component {
 	render()
 	{
 		return (
-		<div className="nav-item-list">
+		<div className="nav-item-list"
+			style={{
+				display: "none"
+			}}
+		>
 			<StudentCard/>
-			{this.props.children}
+			<div className="flex-column mt-4">
+				{this.props.children}
+			</div>
 
 		</div>
 		);

@@ -1,12 +1,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ReactSVG } from 'react-svg'
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 

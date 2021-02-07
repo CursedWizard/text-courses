@@ -7,12 +7,17 @@ import {
   Link
 } from "react-router-dom";
 
+import {determineDevice} from "../utils/Utils";
+
 
 class AsideCard extends React.Component {
     constructor (props) 
 	{
 		super(props);
 
+		this.state = {
+			device: "pc"
+		}
 		this.handleClick = this.handleClick.bind(this);
 	}
 
@@ -21,10 +26,21 @@ class AsideCard extends React.Component {
 		console.log(this.props.contentUrl)
 	}
 
+
+	componentDidMount()
+	{
+		determineDevice(this, 720);
+
+		// modifyDevice(window.innerWidth);
+		window.addEventListener('resize', () => determineDevice(this, 720));
+	}
+
 	render()
 	{
 		return (
-			<div className="mt-6 ml-2 mr-2">
+			<div className="mt-6 ml-2 mr-2"
+				style={ this.state.device === "mobile" ? {display: "none"} : null }
+			>
 				<div className=" floating flex-column right-sticky p-6 pl-6 pr-6"
 					style={{borderRadius: "6px", minWidth: "300px"}}
 				>

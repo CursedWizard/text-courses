@@ -6,6 +6,10 @@ import "../styles/content_page.css"
 import CircleDone from "../img/CircleDone"
 import Disk from "../img/Disk"
 
+import {
+  Link
+} from "react-router-dom";
+
 class SubLessonItem extends React.Component {
     constructor (props) 
 	{
@@ -38,7 +42,9 @@ class SubLessonItem extends React.Component {
 					:
 					<Disk className="no-shrink" style={{marginLeft: "-9.8px"}}/>
 				}
-				<h6 style={{marginTop: "-0px"}} className="lesson-text">{this.props.title}</h6>
+				<Link to={this.props.link}>
+					<h6 style={{marginTop: "-0px"}} className="lesson-text">{this.props.title}</h6>
+				</Link>
 			</div>
 		);
 	}

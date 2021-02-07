@@ -1,22 +1,15 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import WebGlCanvas from "./webgl/WebGlCanvas"
-import Button from "./components/Button"
 import NavItemList from "./components/NavItemList"
 import MenuBurger from "./img/MenuBurger";
 import "./styles/nav_style.css"
 
-import MainPage from "./MainPage"
-import CoursesPage from "./CoursesPage"
-import CourseInfo from "./CourseInfo"
+import SidePanel from "./components/ContentPage/SidePanel"
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {determineDevice} from "./utils/Utils";
+
+import ModalWindow from "./components/ContentPage/ModalWindow";
 
 class NavPanel extends React.Component {
     constructor (props) 
@@ -28,18 +21,27 @@ class NavPanel extends React.Component {
 			selectedItem: null,
 			activePage: null,
 			title: "",
-			showNavPanel: 1
+			showNavPanel: 0,
+			modalActive: false,
+			
+			device: "mobile"
 		}
 
 		this.setPageInfo = this.setPageInfo.bind(this);
+		this.handleCloseModal = this.handleCloseModal.bind(this);
 		this.handleNavPanelSwitch = this.handleNavPanelSwitch.bind(this);
 	}
 
 
 	componentDidMount()
 	{
+
+		determineDevice(this, 700);
+
+		window.addEventListener('resize', () => determineDevice(this, 700));
+
 		this.navItemList = React.Children.toArray(
-					this.props.navigation.props.children).map(
+					this.props.navigation).map(
 					function(child) {
 						return child.props.itemName
 					});
@@ -69,12 +71,24 @@ class NavPanel extends React.Component {
 
 	}
 
-	handleNavPanelSwitch()
+
+	handleCloseModal()
 	{
 		this.setState({
-			showNavPanel: this.state.showNavPanel ^ 1
+			modalActive: this.state.modalActive ^ 1
 		});
+	}
 
+	handleNavPanelSwitch()
+	{
+		if (this.state.device === "mobile")
+			this.setState({
+				modalActive: this.state.modalActive ^ 1
+			})
+		else
+			this.setState({
+				showNavPanel: this.state.showNavPanel ^ 1
+			});
 	}
 
 	componentDidUpdate(prevProps)
@@ -92,11 +106,26 @@ class NavPanel extends React.Component {
 			<>
 				{/* <div className="shadow-simulation"/> */}
 			<div className="main-page">
-				<div className={this.state.showNavPanel === 0 ? "dis-off" : ""}>
-					{this.props.navigation}
+				<div className={this.state.showNavPanel === 0 || this.state.device === "mobile" ? "dis-off" : ""}>
+					<SidePanel>
+						{this.props.navigation}
+					</SidePanel>
 				</div>
 
-				<div className={`${this.state.showNavPanel === 0 ? "ml-0" : "ml-300"} content-page`}>
+					{
+						this.state.modalActive ?
+							<ModalWindow
+								onClose={this.handleCloseModal}
+								product={this.state.curProduct}
+							>
+
+								{this.props.navigation}
+							</ModalWindow>
+						:
+							null
+					}
+
+				<div className={`${this.state.showNavPanel === 0 || this.state.device === "mobile" ? "ml-0" : "ml-300"} content-page`}>
 
 					<header className="top-navigation p-1">
 

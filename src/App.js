@@ -3,14 +3,15 @@ import IndexPage from "./IndexPage";
 import ContentPage from "./ContentPage";
 import "./media/gotham_font/stylesheet.css"
 import "./styles/base_stylesheet.css"
+import "./styles/button.css"
 
 import './styles/App.css';
+import {determineDevice} from "./utils/Utils";
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 class App extends React.Component {
@@ -23,10 +24,33 @@ class App extends React.Component {
 			 * content  - страница с курсом
 			 * index - страница с каталогом курсов
 			*/
-			currentPage: "index"
+			currentPage: "index",
+			device: "pc"
 		}
 		
 		this.handleItemClick = this.handleItemClick.bind(this);
+	}
+
+	componentDidMount()
+	{
+
+		let setFont = () => {
+			let mobile = determineDevice(this, 500);
+
+			let e = document.getElementById("root");
+			if (mobile)
+			{
+				e.style["font-size"] = "14px";
+			}
+			else
+				e.style["font-size"] = "18px";
+
+		}
+		setFont();
+
+
+		// modifyDevice(window.innerWidth);
+		window.addEventListener('resize', () => setFont(this));
 	}
 
 	handleItemClick(pageName)
@@ -42,8 +66,8 @@ class App extends React.Component {
 		return (
 			<Router>
 				<Switch>
-					<Route path="/index/catalog/:course/:id" exact component={ContentPage}/>
-					<Route path="/index/:nav_name" component={IndexPage}/>
+					<Route path="/web/theory-courses/:course/:id" exact component={ContentPage}/>
+					<Route path="/web/theory-courses" component={IndexPage}/>
 				</Switch>
 			</Router>
 		);

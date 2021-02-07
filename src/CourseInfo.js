@@ -2,23 +2,14 @@
 import React from 'react';
 import "./styles/course_page.css"
 
-import Highlighter from "./components/Highlighter";
-import InfoBlock from "./components/InfoBlock";
-
-import {flexible_format, text_base, concise_material, practise} from "./media/texts/text_course";
-
-import TextIcon from "./img/TextIcon";
-import BulbIcon from "./img/BulbIcon";
-import FormatIcon from "./img/MonitorIcon";
-
-import Button from "./components/Button"
 
 // Components
 import AsideCard from "./components/AsideCard"
-import HighlightedFeature from "./components/CoursePage/HighlightedFeature";
 import NavLessonItem from "./components/NavLessonItem";
 import Footer from "./components/Footer";
 import ModalWindow from "./components/ModalWindow";
+import LoadingPage from "./img/animation/LoadingPage";
+import LoadingBar from "./img/animation/LoadingBar";
 
 // Sections
 import CourseOverview from "./sections/CourseOverview";
@@ -26,11 +17,11 @@ import HeaderSection from "./sections/HeaderSection";
 import ProsSection from "./sections/ProsSection";
 
 
-import ReactSVG from "react-svg";
-import ContentTable from "./components/CoursePage/ContentTable"
+import ContentTable from "./components/ContentTable";
+import MobileContentTable from "./components/mobile/ContentTable";
 
+import {getCourseInfo} from "./utils/FetchData";
 
-import overview_text from "./media/texts/course_overview";
 
 class CourseInfo extends React.Component {
     constructor (props) 
@@ -42,26 +33,34 @@ class CourseInfo extends React.Component {
 			color: "#656565",
 		}
 		this.state = {
+			curProduct: {
+				price: 3000,
+				name: "Nothing"
+			},
 			modalActive: false,
-			contentUrl: null
+			contentUrl: null,
+			loading: true,
+			lessons: []
 		}
 
 		this.handleTabClick = this.handleTabClick.bind(this);
 		this.handleCloseModal = this.handleCloseModal.bind(this);
 	}
 
-	componentDidMount()
+	async componentDidMount()
 	{
-		this.setState({
-			contentUrl: "/index/catalog/math/39DpLBvDW7p"
-		});
+		let data = await getCourseInfo();
 
-		let func =  () => console.log(this.state.contentUrl);
-		setTimeout(function() {
-			func();
-		}, 1000);
+		setTimeout(() => {
+			this.setState({
+				contentUrl: "/web/theory-courses/math/lesson-1",
+				loading: false,
+				lessons: data.lessons
+			});
 
-		
+		}, 2000);
+
+
 	}
 
 	handleTabClick(tabName)
@@ -71,9 +70,10 @@ class CourseInfo extends React.Component {
 		});
 	}
 
-	handleCloseModal()
+	handleCloseModal(product)
 	{
 		this.setState({
+			curProduct: product,
 			modalActive: this.state.modalActive ^ 1
 		});
 
@@ -83,11 +83,20 @@ class CourseInfo extends React.Component {
 	{
 		return (
 			<>
+				<LoadingBar loading={this.state.loading}/>
+				{
+					this.state.loading ? 
+						<div className="w-full flex-row mt-12">
+						<LoadingPage/>
+						</div>
+					:
+
 				<div className="_next">
 					{
 						this.state.modalActive ?
 							<ModalWindow
 								onClose={this.handleCloseModal}
+								product={this.state.curProduct}
 							/>
 						:
 							null
@@ -96,6 +105,7 @@ class CourseInfo extends React.Component {
 					<HeaderSection
 						title="Математика"
 						subtitle="профильная"
+						contentUrl={this.state.contentUrl}
 					/>
 
 
@@ -107,54 +117,29 @@ class CourseInfo extends React.Component {
 						<div id="dashboard"
 							className="p-5"
 							style={{
+								padding: "1.25em",
 								maxWidth: "700px"
 							}}
 						>
 							<CourseOverview />
 
-							<h4 className="mb-6 mt-8"
-							>Содержание курса</h4>
 
 							<ContentTable>
-								<NavLessonItem
-									title="Текстовые задачи"
-									extended={false}
-									indexNumber={"1."}
-									price={0}
-									butClassName="ml-4 -mr-4"
-								/>
+								{
+									this.state.lessons.map((lesson, index) => {
+										return (
+											<NavLessonItem
+												title={lesson.title}
+												extended={false}
+												indexNumber={`${index+1}.`}
+												price={lesson.price}
+												subLessons={lesson.subLessons}
+												onPurchase={this.handleCloseModal}
+											/>
+										)
 
-								<NavLessonItem
-									title="Графики и диаграммы"
-									extended={false}
-									indexNumber={"2."}
-								price={0}
-									butClassName="ml-4 -mr-4"
-								/>
-
-								<NavLessonItem
-									title="Начала теории вероятностей"
-									extended={false}
-									indexNumber={"3."}
-									price={0}
-									butClassName="ml-4 -mr-4"
-								/>
-
-								<NavLessonItem
-									title="Производная и первообразная"
-									extended={false}
-									indexNumber={"4."}
-									price={250}
-									butClassName="ml-4 -mr-4"
-								/>
-
-								<NavLessonItem
-									title="Планиметрия"
-									extended={false}
-									indexNumber={"5."}
-									price={300}
-									butClassName="ml-4 -mr-4"
-								/>
+									})
+								}
 							</ContentTable>
 
 
@@ -172,6 +157,7 @@ class CourseInfo extends React.Component {
 					<Footer/>
 
 				</div>
+				}
 			</>
 
 		);

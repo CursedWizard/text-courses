@@ -1,0 +1,18 @@
+{
+  "componentDestination": "./src/components/",
+  "styledComponentDestination": "./src/components/",
+  "tscomponentDestination": "./src/components",
+  "viewDestination": "./src/views",
+  "storeDestination": "./src/store/",
+  "pageDestination": "./src/pages",
+  "tspageDestination": "./src/pages",
+  "reduxDestination": "./src/store",
+  "setupDestination": "./src/",
+  "reduxModuleDestination": "./src/store/",
+  "serviceModuleDestination": "./src/services/",
+  "servicesDestination": "./src/services",
+  "configDestination": "./src/services/configs",
+  "requestDestination": "./src/services/config/",
+  "storageDestination": "./src/services/config/",
+  "templatePath": "/home/funtik/dev/Templates/codegen/templates/exode-app"
+}

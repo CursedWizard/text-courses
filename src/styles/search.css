@@ -6,16 +6,18 @@
 	flex: 1 1 45px;
 	height: 45px;
 	flex-wrap: nowrap;
-	border-radius: 4px;
-	border: 1px solid rgb(210, 210, 214);
-	padding: 0px 20px 0px 30px;
+	border-radius: 10px;
+	border: 1px solid #DDDDDD;
+	padding: 0px 10px 0px 20px;
+	max-width: 750px;
 
-	margin-top: 1%;
 }
 
 .input-bar {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
-	color: rgb(0, 0, 0);
+	color: #DDDDDD;
+	font-family:  "Nunito";
+	font-weight: bold;
 	padding: 5px 0px;
 	box-shadow: none;
 	border: medium none;

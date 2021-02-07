@@ -11,8 +11,8 @@ class StudentCard extends React.Component {
 		<div className="student-card">
 			<Student className="rounded-full student-avatar" style={{width: "64px", height: "64px"}}/>
 			<div className="student-info">
-				<span style={{paddingBottom: "1%"}}>Алексей Навальный</span>
-				<span style={{color: "#555555"}}>новичок</span>
+				<span>Алексей Навальный</span>
+				<span style={{color: "#555537"}}>новичок</span>
 			</div>
 
 		</div>

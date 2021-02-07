@@ -1,8 +1,7 @@
 
 import "./media/gotham_font/stylesheet.css"
 import React from 'react';
-import MainPage from "./MainPage"
-import CoursesPage from "./CoursesPage"
+import CoursesPage from "./CoursesPage.js"
 import NavPanel from"./NavPanel"
 
 import NavItemList from "./components/NavItemList"
@@ -18,10 +17,7 @@ import WalletIcon from "./img/nav_icons/Wallet";
 import CourseInfo from "./CourseInfo"
 
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 class IndexPage extends React.Component {
@@ -58,7 +54,7 @@ class IndexPage extends React.Component {
 							selected={this.state.activeItem === "main"}
 							onClick={this.handleItemClick}
 							icon={MainIcon}
-							link="/index/main"
+							link="/web/main"
 						/>
 
 						<NavItem 
@@ -67,7 +63,7 @@ class IndexPage extends React.Component {
 							selected={this.state.activeItem === "courses"}
 							onClick={this.handleItemClick}
 							icon={CoursesIcon}
-							link="/index/catalog"
+							link="/web/theory-courses"
 						/>
 
 						<NavItem 
@@ -77,7 +73,7 @@ class IndexPage extends React.Component {
 							onClick={this.handleItemClick}
 							icon={CoursesIcon}
 							invincible={true}
-							link="/index/info"
+							link="/web/info"
 						/>
 
 						<NavItem 
@@ -115,9 +111,8 @@ class IndexPage extends React.Component {
 			}>
 
 				<div>
-					<Route path="/index/main" exact component={MainPage}/>
-					<Route path="/index/catalog" exact component={CoursesPage}/>
-					<Route path="/index/catalog/:course" exact component={CourseInfo}/>
+					<Route path="/web/theory-courses" exact component={CoursesPage}/>
+					<Route path="/web/theory-courses/:course" exact component={CourseInfo}/>
 				</div>
 
 			</NavPanel>

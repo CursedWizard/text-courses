@@ -10,11 +10,21 @@
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "@vkontakte/icons": "^1.75.0",
+    "@vkontakte/vk-bridge": "^2.4.0",
+    "@vkontakte/vkjs": "^0.20.0",
+    "@vkontakte/vkui": "^4.0.8",
+    "autoprefixer": "^10.2.4",
+    "postcss": "^8.2.4",
+    "radium": "^0.26.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-svg": "^11.2.1",
+    "styled-components": "^5.2.1",
+    "tailwind-rn": "^3.0.0",
+    "tailwindcss": "^2.0.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -46,6 +56,10 @@
     "@editorjs/delimiter": "^1.2.0",
     "@editorjs/editorjs": "^2.19.1",
     "@editorjs/paragraph": "^2.8.0",
-    "react-editor-js": "^1.7.0"
+    "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "react-editor-js": "^1.7.0",
+    "typescript": "^4.1.3"
   }
 }

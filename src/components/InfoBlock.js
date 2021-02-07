@@ -1,5 +1,6 @@
 
 import React from 'react';
+import {tailwind} from '../styles/tailwind';
 
 class InfoBlock extends React.Component {
     constructor (props) 
@@ -17,14 +18,15 @@ class InfoBlock extends React.Component {
 		return (
 
 			<div
-				className="p-4"
+				className="pt-4 pr-4"
 				style={this.props.style}
 			>
 
 				<div
 					className="flex-column justify-start"
 					style={{
-						width: "360px"
+						maxWidth: "315px",
+						minWidth: "220px"
 					}}
 				>
 
@@ -37,8 +39,8 @@ class InfoBlock extends React.Component {
 							}}
 							className="mr-3"/>
 
-						<h4 style={{fontSize: "1.25rem"}} className="mb-0 my-auto"
-						>{this.props.title}</h4>
+						<h5 style={tailwind("leading-4 font-bold")} className="my-auto"
+						>{this.props.title}</h5>
 					</div>
 
 					<p className="text-base">{this.props.text}</p>

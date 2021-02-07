@@ -4,6 +4,7 @@ import React from 'react';
 import { ReactSVG } from 'react-svg'
 // import "../styles/nav_style.css"
 //
+import styled from "styled-components";
 
 import PhysIcon from "../img/lessons/phys_2.svg";
 import MathIcon from "../img/lessons/math-test.svg";
@@ -13,16 +14,43 @@ import SocIcon from "../img/lessons/society_2.svg";
 import BioIcon from "../img/lessons/biology_2.svg";
 
 import CircArc from "../img/forms/circ-arc_2.svg";
-import SkyLine from "../img/forms/sky-line.svg";
 import Apart from "../img/forms/A-part.svg";
 import Bpart from "../img/forms/B-part.svg";
 import Cpart from "../img/forms/C-part.svg";
-import Separat from "../img/forms/blue-sep.svg";
 
-import Triangle from "../img/forms/triangle.svg";
-import DiskSvg from "../img/forms/disk.svg";
 import ArrowRight from "../img/ArrowBack";
+import {shortText} from "../utils/Utils";
+import {tailwind} from '../styles/tailwind';
 
+
+const HeaderTitle = styled.div`
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+
+	color: white;
+	background: ${props => props.color};
+	with: 100%;
+	height: 8em;
+
+	padding-left: 1em;
+	padding-right: 1em;
+
+	display: flex;
+	flex-direction: column;
+	justify-content:  center;
+
+	
+	& > h4 {
+		margin-top: 0em;
+		margin-bottom: 0em;
+		font-weight: bold;
+	}
+	& > h6 {
+		margin-top: -0.2em;
+		margin-bottom: 0em;
+		color: #EDEDED;
+	}
+`;
 
 async function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -138,147 +166,127 @@ class CourseCard extends React.Component {
 			<div className="course-card-wrapper flex-column"
 				// onClick={() => this.props.onClick("content")}
 			>
-				<ReactSVG  
-					beforeInjection={(svg) => {
-						svg.classList.add('circ-arc')
-						svg.setAttribute('style', `--color-stop: ${this.state.arcColor}`)
-					}}
-					src={CircArc} />
 
-				<div className="course-card-inside-wrapper"
+				<HeaderTitle color="#A283E4">
+					<h4 
+					>
+						{this.state.subjOfficName}
+					</h4>
+
+					<h6 
+					>
+						{this.state.subjectSemiName}
+					</h6>
+				</HeaderTitle>
+
+				<div className="course-card-inside-wrapper h-full flex-column justify-between"
 					style={{position: "relative"}}
 				>
+					<div className="flex-column">
+						<p
+							className="mt-1 text-base"
+						>{shortText(this.props.overview, 60) || "Разбор типичных заданий тестовой части профильной математики..." }</p>
+					</div>
 
-				<div 
-						class="flex-row items-center"
-				>
-					<ReactSVG  
-						beforeInjection={(svg) => {
-							svg.classList.add('subj-icon')}}
-						/* Setting icon of the subject */
-						src={this.state.subjIcon}
-					/>
+				<div className="flex-column">
 					<div 
-						className="flex-column ml-2 my-auto"
+						className="flex-row"
 					>
-						<h5 
-							className="test-item mb-0 font-bold mb-0 lh-5"
-						>
-							{this.state.subjOfficName}
-						</h5>
+						<p>Части:</p>
 
-						<h6 
-							className="col-grey mt-0 mb-2"
-						>
-							{this.state.subjectSemiName}
-						</h6>
+						{
+							this.state.partA ? 
+								<div 
+									className="ml-1">
+									<ReactSVG
+										beforeInjection={(svg) => {
+											svg.classList.add('ege-part')}}
+										src={Apart} />
+								</div>
+								:
+								null
+						}
 
+						{
+							this.state.partB ? 
+								<div 
+									className="ml-1">
+									<ReactSVG
+										beforeInjection={(svg) => {
+											svg.classList.add('ege-part')}}
+										src={Bpart} />
+								</div>
+								:
+								null
+						}
+
+						{
+							this.state.partC ? 
+								<div 
+									className="ml-1">
+									<ReactSVG
+										beforeInjection={(svg) => {
+											svg.classList.add('ege-part')}}
+										src={Cpart} />
+								</div>
+								:
+								null
+						}
 					</div>
-				</div>
 
-
-				<p
-					className="mt-3 text-base"
-				>Разбор типичных заданий тестовой части профильной математики...</p>
-
-				<div 
-					style={{marginBottom: "0%", marginTop: "16px"}}
-						id="row-flex"
-				>
-					<p>Части:</p>
-
-					{
-						this.state.partA ? 
-					<div 
-						className="ml-1">
-					<ReactSVG
-						beforeInjection={(svg) => {
-							svg.classList.add('ege-part')}}
-						src={Apart} />
-					</div>
-						:
-						null
-					}
-
-					{
-						this.state.partB ? 
-					<div 
-						className="ml-1">
-					<ReactSVG
-						beforeInjection={(svg) => {
-							svg.classList.add('ege-part')}}
-						src={Bpart} />
-					</div>
-						:
-						null
-					}
-
-					{
-						this.state.partC ? 
-					<div 
-						className="ml-1">
-					<ReactSVG
-						beforeInjection={(svg) => {
-							svg.classList.add('ege-part')}}
-						src={Cpart} />
-					</div>
-						:
-						null
-					}
-				</div>
-
-				<hr className="MuiDivider-root"
-					style={{
-						marginTop: "7px",
-						marginBottom: "10px",
-						backgroundColor: "#6EBEE4",
-						height: "2px"
-					}}
+					<hr className="MuiDivider-root"
+						style={{
+							marginTop: "7px",
+							marginBottom: "10px",
+							backgroundColor: "#6EBEE4",
+							height: "2px"
+						}}
 					/>
 
-				<div class="flex-row items-center justify-between mt-auto"
-				>
-
-					<div 
-						class="flex-row"
-						style={{
-							// display: "inline-flex"
-						}}
+					<div class="flex-row items-center justify-between mt-auto"
 					>
-						<img
-							style={{borderRadius: "6px"}}
-							src={"https://exode.ru/img/icon-square-256.png"}
-							width="36" height="36" alt=""/>
-						<p 
-							className="mt-auto mb-auto"
+
+						<div 
+							class="flex-row"
 							style={{
-								fontSize: "16px",
-								marginLeft: "5px"
+								// display: "inline-flex"
 							}}
-						>exode</p>
+						>
+							<img
+								src={this.props.author ? this.props.author.avatar_url : "https://exode.ru/img/icon-square-256.png" }
+								className="rounded-full"
+								width="36" height="36" alt=""/>
+							<p 
+								className="mt-auto mb-auto"
+								style={{
+									maxWidth: "100px",
+									lineHeight: "0.85rem",
+									fontSize: "14px",
+									marginLeft: "8px"
+								}}
+							>{this.props.author ? this.props.author.fn + " " + this.props.author.ln : "exode"}
+							</p>
+						</div>
+
+						<button class="flex-row ml-auto" 
+						>
+							<span
+								style={{
+									// fontSize: "20px",
+									fontWeight: "600",
+								}}
+							>Начать</span>
+
+							<ArrowRight
+								style={{
+									marginLeft: "5px",
+									transform: "rotate(180deg)",
+									fill: "#FF7D20"
+								}}
+							/>
+
+						</button>
 					</div>
-
-					<button class="flex-row ml-auto" 
-						style={{
-							display:"flex"
-						}}
-					>
-						<span
-							style={{
-								fontSize: "20px",
-								// fontWeight: "bold",
-							}}
-						>Начать</span>
-
-						<ArrowRight
-						style={{
-							marginLeft: "5px",
-							transform: "rotate(180deg)",
-							fill: "#FC6900"
-						}}
-						/>
-
-					</button>
 				</div>
 
 

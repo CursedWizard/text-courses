@@ -16,7 +16,7 @@ class ArrowExtend extends React.Component {
 	{
 		return (
 <svg style={this.props.style} className={this.props.className} id="Layer_1" 
-	enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" 
+	height="512" viewBox="0 0 512 512" width="512" 
 	xmlns="http://www.w3.org/2000/svg">
 	<g>
 		<path d="m445.846 421.86c34.471-42.208 55.156-96.117 55.156-154.862 0-135.311-109.691-245.002-245.002-245.002s-245.002 109.691-245.002 245.002c0 58.746 20.685 112.655 55.157 154.863z" fill="#73c3f9"/>
